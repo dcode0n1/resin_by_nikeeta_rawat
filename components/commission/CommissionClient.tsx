@@ -6,6 +6,7 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import FadeUp from "@/components/ui/FadeUp";
+import { submitCommission } from "@/app/actions/commission";
 
 // Define the validation schema using Zod
 const commissionSchema = z
@@ -42,6 +43,7 @@ type CommissionFormValues = z.infer<typeof commissionSchema>;
 export default function CommissionClient() {
   const [submitted, setSubmitted] = useState(false);
   const [submittedData, setSubmittedData] = useState<CommissionFormValues | null>(null);
+  const [submitError, setSubmitError] = useState<string | null>(null);
 
   const {
     register,
@@ -70,10 +72,21 @@ export default function CommissionClient() {
   // Watch the occasion to conditionally render customOccasion field
   const occasion = watch("occasion");
 
-  const onSubmit = (data: CommissionFormValues) => {
-    setSubmittedData(data);
-    setSubmitted(true);
-    window.scrollTo({ top: 0, behavior: "smooth" });
+  const onSubmit = async (data: CommissionFormValues) => {
+    setSubmitError(null);
+    try {
+      const result = await submitCommission(data);
+      if (result.success) {
+        setSubmittedData(data);
+        setSubmitted(true);
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      } else {
+        setSubmitError(result.error || "Failed to submit request. Please try again.");
+      }
+    } catch (err) {
+      console.error(err);
+      setSubmitError("A connection error occurred. Please check your database connection or try again later.");
+    }
   };
 
   return (
@@ -438,6 +451,13 @@ export default function CommissionClient() {
                     )}
                   </div>
                 </div>
+
+                {/* Submit Error Message */}
+                {submitError && (
+                  <div className="bg-rose-950/40 border border-rose-500/30 p-4 text-rose-200 text-sm font-light leading-relaxed">
+                    {submitError}
+                  </div>
+                )}
 
                 {/* Submit Button */}
                 <div className="pt-6">
