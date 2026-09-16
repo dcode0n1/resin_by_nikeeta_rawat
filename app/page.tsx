@@ -61,7 +61,7 @@ export default function Home() {
         "@id": "https://nikeetarawatstudio.com/#organization",
         "name": "Nikeeta Rawat Resin Studio",
         "url": "https://nikeetarawatstudio.com",
-        "logo": "https://placehold.co/600x400/0e0e0f/d6a84b?text=Nikeeta+Resin+Studio",
+        "logo": "https://nikeetarawatstudio.com/images/logo.png",
         "founder": {
           "@type": "Person",
           "name": "Nikeeta Rawat",
@@ -76,7 +76,7 @@ export default function Home() {
         "@type": "LocalBusiness",
         "@id": "https://nikeetarawatstudio.com/#localbusiness",
         "name": "Nikeeta Rawat Resin Studio",
-        "image": "https://placehold.co/600x400/0e0e0f/d6a84b?text=Nikeeta+Resin+Studio",
+        "image": "https://nikeetarawatstudio.com/images/logo.png",
         "telephone": "+91 63991 73280",
         "address": {
           "@type": "PostalAddress",
@@ -168,7 +168,19 @@ export default function Home() {
 
           {/* Hero Content */}
           <div className="relative z-10 mx-auto max-w-5xl px-6 text-center flex flex-col items-center">
-            <FadeUp delay={100}>
+            <FadeUp delay={100} className="flex flex-col items-center">
+              <div className="relative mb-5 flex items-center justify-center">
+                <div className="relative h-16 w-16 sm:h-20 sm:w-20 rounded-full overflow-hidden border border-gold/40 shadow-2xl ring-2 ring-gold/20 bg-black/50 p-0.5">
+                  <Image
+                    src="/images/logo.png"
+                    alt="Nikeeta Rawat Resin Studio Monogram"
+                    width={80}
+                    height={80}
+                    priority
+                    className="object-cover w-full h-full rounded-full"
+                  />
+                </div>
+              </div>
               <span className="text-xs font-semibold uppercase tracking-[0.4em] text-gold mb-6 inline-block">
                 Nikeeta Rawat Resin Studio
               </span>

@@ -18,7 +18,7 @@ export default function ContactPage() {
     "mainEntity": {
       "@type": "LocalBusiness",
       "name": "Nikeeta Rawat Resin Studio",
-      "image": "https://placehold.co/600x400/0e0e0f/d6a84b?text=Nikeeta+Resin+Studio",
+      "image": "https://nikeetarawatstudio.com/images/logo.png",
       "telephone": "+91 63991 73280",
       "email": "nikitarawatniki1234@gmail.com",
       "address": {

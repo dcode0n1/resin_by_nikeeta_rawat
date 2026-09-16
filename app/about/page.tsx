@@ -93,6 +93,21 @@ export default function AboutPage() {
               {/* Story Content */}
               <div className="lg:col-span-6 space-y-6 font-light text-zinc-300 leading-relaxed text-sm md:text-base">
                 <FadeUp delay={200}>
+                  <div className="flex items-center gap-3.5 mb-6">
+                    <div className="relative h-12 w-12 rounded-full overflow-hidden border border-gold/40 bg-black/40 ring-1 ring-white/10 shrink-0">
+                      <Image
+                        src="/images/logo.png"
+                        alt="Atelier Emblem"
+                        width={48}
+                        height={48}
+                        className="object-cover w-full h-full"
+                      />
+                    </div>
+                    <div>
+                      <span className="text-xs uppercase tracking-[0.3em] text-gold font-medium block">Atelier Heritage</span>
+                      <span className="text-[10px] uppercase tracking-[0.2em] text-zinc-500">Handcrafted in Uttarakhand</span>
+                    </div>
+                  </div>
                   <h2 className="font-serif text-2xl md:text-3xl text-white font-light tracking-wide mb-6">
                     A Passion for Crystalline Memories
                   </h2>

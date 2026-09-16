@@ -55,7 +55,7 @@ export default async function LocationPage({ params }: PageProps) {
     "@type": "LocalBusiness",
     "name": `Nikeeta Rawat Resin Studio - ${loc.name} Flower Preservation`,
     "description": loc.metaDescription,
-    "image": "https://placehold.co/600x400/0e0e0f/d6a84b?text=Nikeeta+Resin+Studio",
+    "image": "https://nikeetarawatstudio.com/images/logo.png",
     "priceRange": "$$",
     "address": {
       "@type": "PostalAddress",

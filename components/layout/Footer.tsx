@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
+import Logo from "@/components/ui/Logo";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 
@@ -64,14 +65,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
           {/* Brand Summary */}
           <div className="flex flex-col space-y-4">
-            <Link href="/" className="flex flex-col">
-              <span className="font-serif text-lg tracking-[0.2em] text-white uppercase">
-                Nikeeta Rawat
-              </span>
-              <span className="text-[8px] tracking-[0.4em] text-gold uppercase -mt-0.5 pl-0.5">
-                Resin Studio
-              </span>
-            </Link>
+            <Logo variant="footer" />
             <p className="text-sm font-light leading-relaxed max-w-xs text-zinc-400">
               An emotional journey of preservation, crafting memories into timeless, glass-like bespoke resin installations.
             </p>

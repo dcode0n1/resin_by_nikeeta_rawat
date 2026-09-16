@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import Logo from "@/components/ui/Logo";
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
@@ -39,14 +40,7 @@ export default function Header() {
           <div className="flex items-center gap-8 xl:gap-16">
             {/* Logo */}
             <div className="flex">
-              <Link href="/" className="group flex flex-col justify-center" onClick={() => setIsOpen(false)}>
-                <span className="font-serif text-xl tracking-[0.2em] text-white transition-colors group-hover:text-gold uppercase">
-                  Nikeeta Rawat
-                </span>
-                <span className="text-[9px] tracking-[0.4em] text-gold uppercase -mt-0.5 pl-0.5">
-                  Resin Studio
-                </span>
-              </Link>
+              <Logo variant="header" onClick={() => setIsOpen(false)} />
             </div>
 
             {/* Desktop Navigation */}
