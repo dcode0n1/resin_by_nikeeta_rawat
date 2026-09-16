@@ -124,6 +124,7 @@ export default async function JournalPostPage({ params }: PageProps) {
                 src={post.coverImage}
                 alt={post.title}
                 fill
+                sizes="(max-width: 1024px) 100vw, 1024px"
                 className="object-cover"
                 priority
               />

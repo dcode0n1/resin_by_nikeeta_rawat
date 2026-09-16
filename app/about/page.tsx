@@ -84,6 +84,7 @@ export default function AboutPage() {
                       src="/images/raw-staging/artwork-50.jpg"
                       alt="Artist Nikeeta Rawat in her resin studio"
                       fill
+                      sizes="(max-width: 1024px) 100vw, 50vw"
                       className="object-cover"
                     />
                   </div>

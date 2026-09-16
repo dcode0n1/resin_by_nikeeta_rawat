@@ -24,6 +24,7 @@ export const viewport: Viewport = {
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://nikeetarawatstudio.com"),
+  manifest: "/manifest.webmanifest",
   title: "Nikeeta Rawat Resin Studio | Preserving Memories in Luxury Art",
   description: "Bespoke preservation of wedding garlands, florals, and memories into luxury handcrafted resin artwork.",
   applicationName: "Nikeeta Rawat Resin Studio",

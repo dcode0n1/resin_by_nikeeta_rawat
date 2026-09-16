@@ -35,35 +35,32 @@ export default function Header() {
       }`}
     >
       <div className={`mx-auto w-full max-w-7xl px-6 lg:px-8 ${isOpen ? "border-b border-white/5" : ""}`}>
-        <div className="flex h-20 items-center justify-between">
-          {/* Left Side: Logo & Navigation */}
-          <div className="flex items-center gap-8 xl:gap-16">
-            {/* Logo */}
-            <div className="flex">
-              <Logo variant="header" onClick={() => setIsOpen(false)} />
-            </div>
-
-            {/* Desktop Navigation */}
-            <nav className="hidden lg:flex items-center lg:space-x-5 xl:space-x-8">
-              {navigation.map((item) => (
-                <Link
-                  key={item.name}
-                  href={item.href}
-                  className={`text-[11px] xl:text-xs tracking-[0.1em] xl:tracking-[0.15em] uppercase font-light transition-colors hover:text-gold ${
-                    isActive(item.href) ? "text-gold font-medium" : "text-zinc-400"
-                  }`}
-                >
-                  {item.name}
-                </Link>
-              ))}
-            </nav>
+        <div className="flex h-20 items-center justify-between gap-3 lg:gap-5 xl:gap-8">
+          {/* Logo */}
+          <div className="flex shrink-0">
+            <Logo variant="header" onClick={() => setIsOpen(false)} />
           </div>
 
+          {/* Desktop Navigation */}
+          <nav className="hidden lg:flex items-center justify-center gap-3.5 xl:gap-6 2xl:gap-7 shrink-0">
+            {navigation.map((item) => (
+              <Link
+                key={item.name}
+                href={item.href}
+                className={`whitespace-nowrap shrink-0 text-[11px] xl:text-xs tracking-[0.08em] xl:tracking-[0.14em] uppercase font-light transition-colors hover:text-gold py-1 ${
+                  isActive(item.href) ? "text-gold font-medium" : "text-zinc-400"
+                }`}
+              >
+                {item.name}
+              </Link>
+            ))}
+          </nav>
+
           {/* Right Side: Call to Action */}
-          <div className="hidden lg:flex items-center">
+          <div className="hidden lg:flex items-center shrink-0">
             <Link
               href="/commission"
-              className="inline-flex items-center justify-center border border-gold px-3 py-3 text-[11px] uppercase tracking-[0.18em] text-gold hover:bg-gold hover:text-black transition-all duration-300 rounded-none font-medium whitespace-nowrap"
+              className="inline-flex items-center justify-center border border-gold px-3.5 py-2.5 xl:px-5 xl:py-3 text-[10px] xl:text-[11px] uppercase tracking-[0.12em] xl:tracking-[0.18em] text-gold hover:bg-gold hover:text-black transition-all duration-300 rounded-none font-medium whitespace-nowrap shrink-0"
             >
               Commission Artwork
             </Link>

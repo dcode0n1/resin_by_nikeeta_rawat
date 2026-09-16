@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import Logo from "@/components/ui/Logo";
+import PwaInstallButton from "@/components/pwa/PwaInstallButton";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 
@@ -97,6 +98,9 @@ export default function Footer() {
                 </li>
               ))}
             </ul>
+            <div className="pt-3">
+              <PwaInstallButton />
+            </div>
           </div>
 
           {/* Newsletter / Contact Info */}

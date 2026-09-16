@@ -1,5 +1,5 @@
 // Nikeeta Rawat Resin Studio Service Worker
-const CACHE_NAME = "nikeeta-resin-v2";
+const CACHE_NAME = "nikeeta-resin-v3";
 const OFFLINE_URL = "/offline";
 
 const PRECACHE_ASSETS = [
@@ -20,11 +20,22 @@ const PRECACHE_ASSETS = [
 
 // Install: precache critical shell and offline assets
 self.addEventListener("install", (event) => {
+  self.skipWaiting();
   event.waitUntil(
-    caches
-      .open(CACHE_NAME)
-      .then((cache) => cache.addAll(PRECACHE_ASSETS))
-      .then(() => self.skipWaiting())
+    caches.open(CACHE_NAME).then(async (cache) => {
+      await Promise.allSettled(
+        PRECACHE_ASSETS.map(async (asset) => {
+          try {
+            const response = await fetch(asset);
+            if (response.ok) {
+              await cache.put(asset, response);
+            }
+          } catch (err) {
+            // Ignore single asset fetch failure during precache
+          }
+        })
+      );
+    })
   );
 });
 
@@ -60,7 +71,6 @@ self.addEventListener("fetch", (event) => {
     event.respondWith(
       fetch(request)
         .then((response) => {
-          // If response is valid, clone and cache it for offline browsing
           if (response.status === 200) {
             const responseClone = response.clone();
             caches.open(CACHE_NAME).then((cache) => cache.put(request, responseClone));

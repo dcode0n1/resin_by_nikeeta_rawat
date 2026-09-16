@@ -110,6 +110,7 @@ export default async function CollectionDetailPage({ params }: PageProps) {
               src={collection.heroImage}
               alt={collection.name}
               fill
+              sizes="100vw"
               className="object-cover opacity-35"
               priority
             />
